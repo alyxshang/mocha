@@ -1,0 +1,8 @@
+# Backend.
+backend/target
+backend/Cargo.lock
+backend/.sqlx
+backend/.env
+
+# General
+.DS_Store
