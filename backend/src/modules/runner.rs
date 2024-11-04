@@ -1,5 +1,6 @@
 use sqlx::Pool;
 use actix_web::App;
+use actix_cors::Cors;
 use actix_web::web::post;
 use actix_web::web::Data;
 use super::err::MochaErr;
@@ -20,7 +21,11 @@ pub async fn run_app(config: &ConfigData) -> Result<(), MochaErr> {
     let data: Data<AppData> = Data::new(AppData::new(&connection));
     let server = match HttpServer::new(
         move || {
+            let cors = Cors::default()
+                .allow_any_origin()
+                .allowed_methods(vec!["GET", "POST"]);
             App::new()
+                .wrap(cors)
                 .app_data(data.clone())
                 .route("/submit", post().to(submit_link))
                 .service(retrieve_link)
