@@ -5,18 +5,33 @@ backend/.sqlx
 backend/.env
 
 # Frontend
-/frontend/logs
-/frontend/*.log
-/frontend/npm-debug.log*
-/frontend/yarn-debug.log*
-/frontend/yarn-error.log*
-/frontend/pnpm-debug.log*
-/frontend//frontend/lerna-debug.log*
-/frontend/node_modules
-/frontend/dist
-/frontend/dist-ssr
-/frontend/*.local
-
+frontend/*.class
+frontend/pubspec.lock
+frontend/*.log
+frontend/*.pyc
+frontend/*.swp
+frontend/.atom/
+frontend/.buildlog/
+frontend/.history
+frontend/.svn/
+frontend/migrate_working_dir/
+frontend/*.iml
+frontend/*.ipr
+frontend/*.iws
+frontend/.idea/
+frontend/**/doc/api/
+frontend/**/ios/Flutter/.last_build_id
+frontend/.dart_tool/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.pub-cache/
+frontend/.pub/
+frontend/build/
+frontend/app.*.symbols
+frontend/app.*.map.json
+frontend/android/app/debug
+frontend/android/app/profile
+frontend/android/app/release
 
 # General
 .DS_Store

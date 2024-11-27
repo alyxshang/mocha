@@ -11,6 +11,7 @@ use super::units::ConfigData;
 use sqlx::postgres::Postgres;
 use super::api::retrieve_link;
 use super::utils::create_connection;
+use actix_web::middleware::DefaultHeaders;
 
 pub async fn run_app(config: &ConfigData) -> Result<(), MochaErr> {
     let app_addr: String = format!("{}:{}", config.actix_host, config.actix_port);
@@ -26,6 +27,11 @@ pub async fn run_app(config: &ConfigData) -> Result<(), MochaErr> {
                 .allowed_methods(vec!["GET", "POST"]);
             App::new()
                 .wrap(cors)
+                .wrap(DefaultHeaders::new()
+                    .add(("Access-Control-Allow-Origin", "*"))
+                    .add(("Access-Control-Allow-Methods", "GET,POST"))
+                    .add(("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept"))
+                )
                 .app_data(data.clone())
                 .route("/submit", post().to(submit_link))
                 .service(retrieve_link)
