@@ -1,15 +1,27 @@
-interface LinkPostPayload {
-    name: string,
-    link: string,
-    time: string
-}
-export type { LinkPostPayload }
+/*
+Mocha Frontend by Alyx Shang.
+Licensed under the FSL v1.
+*/
 
+'use strict';
+
+// Importing the "LinkPostPayload" interface
+// to submit a payaload.
+import { LinkPostPayload } from "./types";
+
+/**
+ * Attempts to post an instance of a link and return
+ * this instance as an object.
+ * @param {string} name The name of the link submitted.
+ * @param {string} link The URL of the link submitted.
+ * @param {string} baseUrl The base URL of the API service.
+ * @returns {object} The receieved (response) object.
+ */
 export async function postLink(
     name: string,
     link: string,
     baseUrl: string
-): Promise<Object>{
+): Promise<object>{
     const url: string = baseUrl + '/submit';
     const payload: LinkPostPayload = {
         name: name,
@@ -35,10 +47,16 @@ export async function postLink(
     return result;
 }
 
+/**
+ * Attempts to retrieve the instance of the saved link object.
+ * @param {string} id The id of the saved link
+ * @param {string} baseUrl The base URL of the API service.
+ * @returns {object} The receieved (response) object.
+ */
 export async function fetchLink(
     id: string,
     baseUrl: string
-): Promise<Object>{
+): Promise<object>{
     const url: string = baseUrl + '/retrieve/' + id;  
     const resp: Response = await fetch(
         url, { method: "GET" },

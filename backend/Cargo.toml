@@ -2,6 +2,13 @@
 name = "mocha-backend"
 version = "0.1.0"
 edition = "2021"
+license-file = "../LICENSE"
+authors = ["Alyx Shang"]
+description= "The backend for a charming and minimalist URL-shortening service.."
+homepage = "https://github.com/alyxshang/mocha"
+repository = "https://github.com/alyxshang/mocha"
+documentation = "https://github.com/alyxshang/mocha"
+readme = "../README.markdown"
 
 [dependencies]
 actix-web = "4"
@@ -12,3 +19,7 @@ tokio = { version = "1.0", features = ["full"] }
 serde = { version = "1.0.214", features = ["derive"] }
 cliply = { git = "https://github.com/alyxshang/cliply", tag = "v.0.1.0" }
 sqlx = { version = "0.8.2", features = ["runtime-tokio", "postgres", "macros"] }
+
+[dev-dependencies]
+serde_json = "1.0"
+reqwest = { version = "0.12.5", features = ["json"] }

@@ -1,10 +1,39 @@
+/*
+Mocha Backend by Alyx Shang.
+Licensed under the FSL v1.
+*/
+
+/// Importing the "App"
+/// structure to create
+/// a new CLI app.
 use cliply::App;
+
+/// Importing the "var"
+/// function to retrieve
+/// environment variables.
 use std::env::var;
+
+/// Importing the "dotenv"
+/// function to retrieve
+/// project-specific
+/// environment variables.
 use dotenvy::dotenv;
+
+/// Importing this crate's
+/// error structure.
 use super::err::MochaErr;
+
+/// Importing the "run_app"
+/// function to run the backend
+/// services.
 use super::runner::run_app;
+
+/// Importing the "ConfigData"
+/// structure for explicit typing.
 use super::units::ConfigData;
 
+/// The function containing this app's
+/// tiny CLI.
 pub async fn cli() -> Result<String, MochaErr>{
     let result: String;
     let mut mocha: App = App::new(

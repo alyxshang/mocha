@@ -1,5 +1,5 @@
 /*
-Mocha by Alyx Shang.
+Mocha Backend by Alyx Shang.
 Licensed under the FSL v1.
 */
 

@@ -1,11 +1,47 @@
+/*
+Mocha Backend by Alyx Shang.
+Licensed under the FSL v1.
+*/
+
+/// Importing the
+/// "Pool" structure
+/// from the "sqlx" crate
+/// to make a pool for
+/// database connections.
 use sqlx::Pool;
+
+/// Importing this crate's
+/// error structure.
 use super::err::MochaErr;
+
+/// Importing the "LinkObj"
+/// for explicit type-casting.
 use super::units::LinkObj;
+
+/// Importing the "Postgres"
+/// structure from the "sqlx"
+/// crate.
 use sqlx::postgres::Postgres;
+
+/// Importing the function
+/// to hash a string to generate
+/// a SHA-256 sum of the timestamp.
 use super::utils::hash_string;
+
+/// Importing the function
+/// to hash a string to generate
+/// a unique ID for any link submitted.
 use super::utils::generate_id;
+
+/// Importing the "LinkPostPayload"
+/// for explicit type-casting.
 use super::units::LinkPostPayload;
 
+/// Attempts to post an instance
+/// of the "LinkObj" structure to
+/// the database. Once the instance 
+/// is written to the database, it is
+/// returned.
 pub async fn write_link(
     payload: &LinkPostPayload, 
     pool: &Pool<Postgres>
@@ -40,6 +76,9 @@ pub async fn write_link(
     Ok(inserted_object)
 }
 
+/// Attempts to retrieve an instance
+/// of the "LinkObj" structure from
+/// the database and returns it.
 pub async fn read_link(
     id: &String, 
     pool: &Pool<Postgres>

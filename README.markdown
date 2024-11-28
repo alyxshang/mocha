@@ -4,7 +4,7 @@
 
 ## ABOUT :books:
 
-This repository contains the source code for ***Mocha***. ***Mocha*** is a url-shortening service. The frontend is written in Typescript using [Fresh](https://fresh.deno.dev) and [Deno](https://deno.land). The backend is an API service written in Rust using [Actix Web](https://actix.rs/) and [SQLx](https://github.com/launchbadge/sqlx).
+This repository contains the source code for ***Mocha***. ***Mocha*** is a url-shortening service. The frontend is written in Typescript using [React](https://react.dev) and [Deno](https://deno.land). The backend is an API service written in Rust using [Actix Web](https://actix.rs/) and [SQLx](https://github.com/launchbadge/sqlx).
 
 ## TECH STACK :pancakes:
 
@@ -18,7 +18,7 @@ This repository contains the source code for ***Mocha***. ***Mocha*** is a url-s
 
 - Deno
 - Typescript
-- Fresh
+- React
 
 ## STATUS :warning:
 
@@ -26,17 +26,11 @@ This repository contains the source code for ***Mocha***. ***Mocha*** is a url-s
 
 ## TODO :gear:
 
-- [ ] Comments.
-- [ ] Logo.
 - [ ] Screenshots.
-- [ ] Finishing the frontend.
 - [ ] Unit tests.
 - [ ] Containerization with Docker.
-- [ ] Styling.
 - [ ] Deployment.
 - [ ] Documentation.
-- [ ] PWA-support for the frontend.
-- [ ] Icons & screenshots.
 
 ## NOTE :scroll:
 
