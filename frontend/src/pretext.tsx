@@ -22,7 +22,7 @@ export function Pretext(props: PretextProps): ReactElement{
     return (
         <>
          <h2>{props.heading}</h2>
-         <h1>{props.pretext}</h1>
+         <p>{props.pretext}</p>
         </>
     );
 }

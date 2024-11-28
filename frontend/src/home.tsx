@@ -52,12 +52,12 @@ import { Pretext } from './pretext.tsx';
  */
 export function Home(props: HomeProps): ReactElement{
     const [url, setUrl] = useState<string>('');
-    const [isLoadingData, setIsLoadingData] = useState<boolean>(true);
     const [name, setName] = useState<string>('');
-    const [statusHeading, setStatusHeading] = useState<string>('');
-    const [statusText, setStatusText] = useState<string>('');
     const [isWatcherSet, setIsWatcherSet] = useState(false);
-    const [statusColor, setStatusColor] = useState<string>('#AEBCC4');
+    const [statusText, setStatusText] = useState<string>('');
+    const [dataLoaded, setDataLoaded] = useState<boolean>(false);
+    const [statusHeading, setStatusHeading] = useState<string>('');
+    const [statusColor, setStatusColor] = useState<string>(props.loadingColor);
     const [watcher, setWatcher] = useState(
         {
             urlName: '',
@@ -77,7 +77,6 @@ export function Home(props: HomeProps): ReactElement{
         () => {
             if (isWatcherSet){
                 const fetchData = async () => {
-                    console.log(watcher.urlName, watcher.urlLink);
                     await postLink(watcher.urlName, watcher.urlLink, watcher.baseUrl)
                         .then(
                             (val) => {
@@ -85,8 +84,8 @@ export function Home(props: HomeProps): ReactElement{
                                 let values: LinkObj = val as LinkObj;
                                 let msg: string = props.linkPrefix + ': ' + values.id;
                                 setStatusText(msg);
-                                setStatusColor('#A9DDB1');
-                                setIsLoadingData(false);
+                                setStatusColor(props.successColor);
+                                setDataLoaded(true);
                             }
 
                         )
@@ -94,8 +93,8 @@ export function Home(props: HomeProps): ReactElement{
                             (_e) => {
                                 setStatusHeading(props.failureHeading);
                                 setStatusText(props.failureMessage);
-                                setIsLoadingData(false);
-                                setStatusColor('#FF5733');
+                                setStatusColor(props.errorColor);
+                                setDataLoaded(true);
                             }
                         )
                 }
@@ -116,27 +115,23 @@ export function Home(props: HomeProps): ReactElement{
             }
         );
         setIsWatcherSet(true);
+        setDataLoaded(false);
     }
     return (
         <>
 
          <Heading name={props.appName}/>
-
          <div className="main">
-
           <Pretext heading={props.guideHeading} pretext={props.guideText}/>
-
           <div className="content">
            <label>{props.nameLabel}</label>
-           <input onChange={handleNameChange} value={name}/>
+           <input type="text" onChange={handleNameChange} value={name}/>
            <label>{props.linkLabel}</label>
-           <input onChange={handleUrlChange} value={url}/>
-           <button onClick={handleClick}>{props.submitButtonLabel}</button>
+           <input type="text" onChange={handleUrlChange} value={url}/>
+           <button className="submit" onClick={handleClick}>{props.submitButtonLabel}</button>
           </div>
-
           <Spacer/>
-
-          {isLoadingData && <Status color={statusColor} statusHeading={statusHeading} statusText={statusText}/>}         
+          {dataLoaded ? <Status statusHeading={statusHeading} statusText={statusText} color={statusColor}/>: '' }      
 
          </div>
         </>

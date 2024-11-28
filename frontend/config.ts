@@ -6,28 +6,29 @@ Licensed under the FSL v1.
 'use strict';
 
 // General variables.
+export const appName: string = 'MOCHA';
+export const errorColor: string = '#FF3333';
+export const loadingColor: string = '#AEBCC4';
 export const baseUrl: string = 'http://127.0.0.1:8080';
 
 // Variables for the screen allowing
 // users to submit a link.
-export const appName: string = 'MOCHA';
 export const nameLabel: string = 'Name';
-export const linkIdLabel: string = 'Link';
 export const linkPrefix: string = 'Link ID';
 export const guideHeading: string = 'Guide';
+export const linkIdLabel: string = 'Link ID';
+export const successColor: string = '#A9DDB1';
 export const failureHeading: string = 'Error';
 export const submitButtonLabel: string = 'Submit';
-export const successHeading: string = 'Link saved!';
+export const successHeading: string = 'Link saved';
 export const failureMessage: string = 'Please try again later';
 export const guideText: string = 'Fill the "Name" field with a name and put the link\'s URL into the "Link" field. Click "Submit" to save your link.';
 
 // Variables for the screen showing data
 // about a retrieved link.
-export const linkLabel: string = 'Link';
 export const heading: string = 'Link Info';
-export const errorColor: string = '#FF5733';
+export const linkLabel: string = 'Your Link';
 export const shaLabel: string = 'SHA-256 Sum';
-export const loadingColor: string = '#F5F5EC';
 export const visitLabel: string = 'Visit Link';
 export const errorLoadingHeading: string = 'Error';
 export const timeSubmitted: string = 'Time submitted';

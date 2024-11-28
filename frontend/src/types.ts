@@ -21,7 +21,10 @@ interface HomeProps{
     nameLabel: string,
     linkLabel: string,
     failureMessage: string
-    linkPrefix: string
+    linkPrefix: string,
+    loadingColor: string,
+    errorColor: string,
+    successColor: string,
 }
 export type { HomeProps };
 
@@ -102,7 +105,7 @@ interface RetrievalProps {
     timeSubmitted: string,
     shaLabel: string,
     idLabel: string,
-    visitLabel: string
+    visitLabel: string,
 }
 export type { RetrievalProps };
 
@@ -118,7 +121,6 @@ interface LinkProps {
     timeSubmitted: string,
     time: string,
     shaLabel: string,
-    shasum: string,
     idLabel: string,
     visitLabel: string
     id: string

@@ -56,20 +56,37 @@ import { RetrievalProps } from "./types";
 
 export function RetrieveData(props: RetrievalProps): ReactElement{
     let params = useParams();
-    const [data, setData] = useState<LinkObj>();
+    const [name, setName] = useState<string>('');
+    const [link, setLink] = useState<string>('');
+    const [time, setTime] = useState<string>('');
+    const [linkId, setLinkId] = useState<string>('');
+    const [isValid, setIsValid] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [statusText, setStatusText] = useState<string>(props.loadingStatusText);
     const [loadingColor, setLoadingColor] = useState<string>(props.loadingColor);
     const [statusHeading, setStatusHeading] = useState<string>(props.loadingStatusHeading);
-    const [statusText, setStatusText] = useState<string>(props.loadingStatusText);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
+    
     useEffect(
         () => {
             const fetchData = async () => {
                 await fetchLink(params.id!, props.baseUrl)
                     .then(
                         (val) => {
-                            let aData: LinkObj = val as LinkObj;
-                            setData(aData);
-                            setIsLoading(false)
+                            if (val.hasOwnProperty("error")){
+                                setStatusHeading(props.errorLoadingHeading);
+                                setStatusText(props.errorLoadingText);
+                                setLoadingColor(props.errorColor);
+                            }
+                            else {
+
+                                let aData: LinkObj = val as LinkObj;
+                                setLinkId(aData.id);
+                                setName(aData.name);
+                                setLink(aData.link_url);
+                                setTime(aData.date_time);
+                                setIsLoading(false)
+                                setIsValid(true);
+                            }                            
                         }
                     )
                     .catch(
@@ -89,24 +106,31 @@ export function RetrieveData(props: RetrievalProps): ReactElement{
          <Heading name={props.name}/>
          <div className="main">
           <Pretext heading={props.heading} pretext={props.pretext}/>
-          {isLoading ? <Link 
-                name={data!.name} 
+          {
+            isLoading ? <Status 
+                         color={loadingColor} 
+                         statusHeading={statusHeading} 
+                         statusText={statusText}
+                        /> : <>
+                        
+            { isValid ? 
+                <Link 
+                name={name} 
                 linkLabel={props.linkLabel} 
-                link={data!.link_url} 
+                link={link} 
                 timeSubmitted={props.timeSubmitted} 
-                time={data!.date_time} 
+                time={time} 
                 shaLabel={props.shaLabel} 
-                shasum={data!.shasum} 
                 idLabel={props.idLabel} 
-                id={data!.id}
+                id={linkId}
                 visitLabel={props.visitLabel}
-            />: 
-            <Status 
+            />: <Status 
                 color={loadingColor} 
                 statusHeading={statusHeading} 
                 statusText={statusText}
-            />}
-            <Spacer/>
+               />}</>
+          }
+          <Spacer/>
          </div>
         </>
     );

@@ -41,9 +41,8 @@ export async function postLink(
     );
     let result: any;
     await resp.json()
-        .then((val) => {result=val;console.log(val)})
+        .then((val) => {result=val;})
         .catch((e) => result = {'error':e.toString()});
-    console.log(result);
     return result;
 }
 

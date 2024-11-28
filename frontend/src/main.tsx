@@ -22,6 +22,7 @@ import {
   linkPrefix,
   linkIdLabel,
   loadingColor,
+  successColor,
   guideHeading,
   timeSubmitted,
   failureHeading,
@@ -68,15 +69,18 @@ createRoot(document.body).render(
        <Home 
         baseUrl={baseUrl} 
         appName={appName} 
+        guideText={guideText}
         nameLabel={nameLabel} 
-        linkLabel={linkIdLabel} 
-        guideHeading={guideHeading} 
-        submitButtonLabel={submitButtonLabel} 
-        guideText={guideText} 
+        linkPrefix={linkPrefix}
+        errorColor={errorColor}
+        linkLabel={linkIdLabel}
+        loadingColor={loadingColor}
+        successColor={successColor}
+        guideHeading={guideHeading}        
         failureHeading={failureHeading} 
         successHeading={successHeading} 
         failureMessage={failureMessage} 
-        linkPrefix={linkPrefix}
+        submitButtonLabel={submitButtonLabel} 
         />
       }/>
         <Route path="/:id" element={
