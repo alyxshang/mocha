@@ -27,13 +27,10 @@ export async function postLink(
             }
         },
     );
-    let result: Object;
-    if (resp.ok){
-        result = await resp.json();
-    }
-    else {
-        result = {'error': 'error'};
-    }
+    let result: any;
+    await resp.json()
+        .then((val) => {result=val;console.log(val)})
+        .catch((e) => result = {'error':e.toString()});
     console.log(result);
     return result;
 }

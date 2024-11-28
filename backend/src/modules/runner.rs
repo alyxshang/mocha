@@ -22,7 +22,7 @@ pub async fn run_app(config: &ConfigData) -> Result<(), MochaErr> {
     let data: Data<AppData> = Data::new(AppData::new(&connection));
     let server = match HttpServer::new(
         move || {
-            let cors = Cors::default()
+            let cors = Cors::permissive()
                 .allow_any_origin()
                 .allowed_methods(vec!["GET", "POST"]);
             App::new()
