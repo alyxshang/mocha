@@ -10,7 +10,12 @@ jobs:
    steps:
      - name: Checkout repository
        uses: actions/checkout@v4
-     - name: Deploy the app
-       uses: digitalocean/app_action/deploy@v2
-       with:
-         token: ${{ secrets.DOAT }}
+
+     - name: "Compress sources."
+       run: mkdir sources && mv ./* sources && tar -cvzf sources.tgz sources
+     
+     - name: "Install \"sshpass\"."
+       run: apt-get install -y sshpass
+
+     - name: "Upload files to Droplet."
+       run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no docker-compose.yml root@${{ vars.DROPLET_IP }}:~
