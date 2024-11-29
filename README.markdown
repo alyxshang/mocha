@@ -39,11 +39,11 @@ This repository contains the source code for ***Mocha***. ***Mocha*** is a url-s
  <img alt="The page displaying information about a saved link." src="screenshots/link.png"/>
 </p>
 
-### USAGE
+### Usage
 
 ***Mocha*** allows you to save links in a database and then retrieve information about the saved link through a link ending in the link's ID. As illustrated in **Fig 1**, there are two fields: i) the "Name" field and ii) the "Link URL" field. The "Name" field allows you to name the link you want to save in a unique and distinct way. The "Link URL" field is the field expecting the link's URL. To save the link together with the link's name, you click the "Submit" button. If saving the link is successful, a text field will appear featuring the ID of the link. If you append this ID to the main URL of the address that ***Mocha*** is online at, you will get a page featuring the link and more information on it, as illustrated on **Fig. 2**. If you click the "Visit Link" button, you will be taken to the page the URL of the link points to.
 
-### API ROUTES
+### API Routes
 
 ***Mocha*** offers the following API routes:
 
