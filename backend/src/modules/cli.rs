@@ -13,12 +13,6 @@ use cliply::App;
 /// environment variables.
 use std::env::var;
 
-/// Importing the "dotenv"
-/// function to retrieve
-/// project-specific
-/// environment variables.
-use dotenvy::dotenv;
-
 /// Importing this crate's
 /// error structure.
 use super::err::MochaErr;
@@ -49,7 +43,6 @@ pub async fn cli() -> Result<String, MochaErr>{
         result = mocha.help_info();
     }
     else if mocha.arg_was_used("runa"){
-        dotenv().ok();
         let db_url: String = match var("DATABASE_URL"){
             Ok(db_url) => db_url,
             Err(e) => return Err::<String, MochaErr>(MochaErr::new(&e.to_string()))

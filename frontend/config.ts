@@ -7,9 +7,11 @@ Licensed under the FSL v1.
 
 // General variables.
 export const appName: string = 'MOCHA';
+export const apiUrlPort: string = '3000';
+export const apiBaseUrl: string = '0.0.0.0';
 export const errorColor: string = '#FF3333';
 export const loadingColor: string = '#AEBCC4';
-export const baseUrl: string = 'http://127.0.0.1:8080';
+export const baseUrl: string = 'http://' + apiBaseUrl + ':' + apiUrlPort;
 
 // Variables for the screen allowing
 // users to submit a link.

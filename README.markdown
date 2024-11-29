@@ -26,8 +26,6 @@ This repository contains the source code for ***Mocha***. ***Mocha*** is a url-s
 
 ## TODO :gear:
 
-- [ ] Deployment.
-- [ ] Containerization with Docker.
 - [ ] Documentation.
 
 ## NOTE :scroll:
