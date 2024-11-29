@@ -8,7 +8,7 @@ jobs:
  deploy-app:
    runs-on: ubuntu-latest
    steps:
-    
+
      - name: Checkout repository
        uses: actions/checkout@v4
 
@@ -19,4 +19,4 @@ jobs:
        run: sudo apt-get install -y sshpass
 
      - name: "Upload files to Droplet."
-       run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no docker-compose.yml root@${{ secrets.DROPLET_IP }}:~
+       run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no sources.tgz root@${{ secrets.DROPLET_IP }}:~
