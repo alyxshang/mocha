@@ -67,8 +67,8 @@ To run this project locally on your own device, please make sure you have Docker
 - 2.) Change directory into Mocha's root directory.
 - 3.) Run the command `docker-compose build`.
 - 4.) Run the command `docker-compose up`.
-- 5.) Mocha's frontend should be now running on (`http://localhost:4000`)[http://localhost:4000].
-- 6.) Mocha's backend should be now running on (`http://localhost:3000`)[http://localhost:3000]
+- 5.) Mocha's frontend should be now running on [`http://localhost:4000`](http://localhost:4000).
+- 6.) Mocha's backend should be now running on [`http://localhost:3000`](http://localhost:3000).
 
 ## NOTE :scroll:
 
