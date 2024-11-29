@@ -12,7 +12,7 @@ jobs:
        uses: actions/checkout@v4
 
      - name: "Compress sources."
-       run: mkdir sources && mv ./* sources && tar -cvzf sources.tgz sources
+       run: mkdir sources && mv backend frontend .dockerignore docker-compose.yml sources && tar -cvzf sources.tgz sources
      
      - name: "Install \"sshpass\"."
        run: apt-get install -y sshpass
