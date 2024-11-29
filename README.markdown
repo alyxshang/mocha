@@ -6,24 +6,11 @@
 
 This repository contains the source code for ***Mocha***. ***Mocha*** is a url-shortening service. The frontend is written in Typescript using [React](https://react.dev) and [Deno](https://deno.land). The backend is an API service written in Rust using [Actix Web](https://actix.rs/) and [SQLx](https://github.com/launchbadge/sqlx).
 
-## TECH STACK :pancakes:
+## STATUS :warning:
 
-### Backend
-
-- Rust
-- Actix Web
-- SQLx
-
-### Frontend
-
-- Deno
-- Typescript
-- React
-
-### Deployment
-
-- Docker
-- Docker Compose
+- [ ] Make a logo.
+- [ ] Deploy somewhere.
+- [ ] Unit tests for both backend and frontend.
 
 ## DOCUMENTATION :book:
 
