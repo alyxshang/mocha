@@ -8,6 +8,8 @@ This repository contains the source code for ***Mocha***. ***Mocha*** is a url-s
 
 ## STATUS :warning:
 
+***THIS PROJECT IS STILL SOMEWHAT WORK IN PROGRESS.***
+
 - [ ] Make a logo.
 - [ ] Deploy somewhere.
 - [ ] Unit tests for both backend and frontend.
