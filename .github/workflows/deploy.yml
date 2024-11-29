@@ -15,7 +15,7 @@ jobs:
        run: mkdir sources && mv backend frontend .dockerignore docker-compose.yml sources && tar -cvzf sources.tgz sources
      
      - name: "Install \"sshpass\"."
-       run: apt-get install -y sshpass
+       run: sudo apt-get install -y sshpass
 
      - name: "Upload files to Droplet."
        run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no docker-compose.yml root@${{ vars.DROPLET_IP }}:~
