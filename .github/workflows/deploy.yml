@@ -17,17 +17,10 @@ jobs:
         mkdir sources
         mv backend frontend .dockerignore docker-compose.yml sources
         ls sources
-        echo "in sources look up"
-        tar -cf sources.tar sources
-        mkdir test
-        mv sources.tar test
-        cd test
-        tar -xvf sources.tar
-        echo "in test"
-        ls
+        tar -cvf sources.tar sources
      
-     #- name: "Install \"sshpass\"."
-     #  run: sudo apt-get install -y sshpass
+     - name: "Install \"sshpass\"."
+       run: sudo apt-get install -y sshpass
 
-     #- name: "Upload files to Droplet."
-     #  run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no sources.tgz root@${{ secrets.DROPLET_IP }}:~
+     - name: "Upload files to Droplet."
+       run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no sources.tar root@${{ secrets.DROPLET_IP }}:~
