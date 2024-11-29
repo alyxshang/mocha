@@ -31,7 +31,7 @@ This repository contains the source code for ***Mocha***. ***Mocha*** is a url-s
 
 - **Fig. 1**: Save a link.
 <p align="center">
- <img alt="The home page where links can be saved." src="screenhots/save_link.png"/>
+ <img alt="The home page where links can be saved." src="screenshots/save_link.png"/>
 </p>
 
 - **Fig. 2**: Retrieve the saved link by the links's ID.
