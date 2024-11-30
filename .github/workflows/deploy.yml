@@ -1,0 +1,22 @@
+name: "Deploy App."
+on:
+ push:
+   branches: [main]
+permissions:
+  contents: read
+jobs:
+ deploy-app:
+   runs-on: ubuntu-latest
+   steps:
+
+     - name: Checkout repository
+       uses: actions/checkout@v4
+
+     - name: "Build Container."
+       run: docker-compose build
+     
+     #- name: "Install \"sshpass\"."
+     #  run: sudo apt-get install -y sshpass
+
+     #- name: "Upload files to Droplet."
+     #  run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no sources.tgz root@${{ secrets.DROPLET_IP }}:~
