@@ -24,7 +24,6 @@ jobs:
 
      - name: "List Docker images."
        run: |
-        docker image ls
         docker images -q mocha_frontend:latest
         docker images -q mocha_api:latest
         docker images -q mocha_db:latest
