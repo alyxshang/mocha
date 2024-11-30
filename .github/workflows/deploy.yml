@@ -19,8 +19,11 @@ jobs:
          legacy: true    # will also install in PATH as `docker-compose`
      - run: docker-compose build
      
-     #- name: "Install \"sshpass\"."
-     #  run: sudo apt-get install -y sshpass
+     - name: "Install \"sshpass\"."
+       run: sudo apt-get install -y sshpass
+
+     - name: "Export the built image."
+       run: docker export --output="latest.tar" mocha
 
      #- name: "Upload files to Droplet."
      #  run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no sources.tgz root@${{ secrets.DROPLET_IP }}:~
