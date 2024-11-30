@@ -22,20 +22,23 @@ jobs:
      - name: "Install \"sshpass\"."
        run: sudo apt-get install -y sshpass
 
-     - name: "Export the built images."
-       run: |
-        docker save -o frontend_service.tar frontend_service
-        docker save -o backend_service.tar backend_service
-        docker save -o db_service.tar db_service
-     
-     - name: "Export the built images."
-       run: |
-         mkdir services
-         mv frontend_service.tar services
-         mv backend_service.tar services
-         mv db_service.tar services
-         tar -cf services.tar services
-         ls      
+     - name: "List Docker images."
+       run: docker image ls
+
+    # - name: "Export the built images."
+    #   run: |
+    #    docker save -o frontend_service.tar frontend_service
+    #    docker save -o backend_service.tar backend_service
+    #    docker save -o db_service.tar db_service
+    # 
+    # - name: "Export the built images."
+    #   run: |
+    #     mkdir services
+    #     mv frontend_service.tar services
+    #     mv backend_service.tar services
+    #     mv db_service.tar services
+    #     tar -cf services.tar services
+    #     ls      
 
      #- name: "Upload files to Droplet."
      #  run: sshpass -v -p ${{ secrets.DROPLET_PWD }} scp -o StrictHostKeyChecking=no sources.tgz root@${{ secrets.DROPLET_IP }}:~
