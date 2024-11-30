@@ -22,12 +22,15 @@ jobs:
      - name: "Install \"sshpass\"."
        run: sudo apt-get install -y sshpass      
 
-     - name: "Export the built images."
-       run: |
-        docker save -o frontend_service.tar mocha_frontend
-        docker save -o backend_service.tar mocha_api
-        docker save -o db_service.tar postgres
-     
+     - name: "Export the frontend image."
+       run: docker save -o frontend_service.tar mocha_frontend
+       
+     - name: "Export the backend image."
+       run: docker save -o frontend_service.tar mocha_api
+
+     - name: "Export the DB image."
+       run: docker image ls
+        
     # - name: "Export the built images."
     #   run: |
     #     mkdir services
