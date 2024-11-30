@@ -19,13 +19,13 @@ jobs:
        run: sudo apt-get install -y sshpass      
 
      - name: "Export the frontend image."
-       run: docker save -o frontend_service.tar mocha_frontend
+       run: docker save -o frontend_service.tar frontend && ls
        
      - name: "Export the backend image."
-       run: docker save -o backend_service.tar mocha_api && ls
+       run: docker save -o backend_service.tar api && ls
 
      - name: "Export the DB image."
-       run: docker image ls
+       run: docker save -o backend_service.tar db && ls
         
     # - name: "Export the built images."
     #   run: |
