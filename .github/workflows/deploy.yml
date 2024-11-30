@@ -20,22 +20,14 @@ jobs:
      - run: docker-compose build
      
      - name: "Install \"sshpass\"."
-       run: sudo apt-get install -y sshpass
+       run: sudo apt-get install -y sshpass      
 
-     - name: "List Docker images."
+     - name: "Export the built images."
        run: |
-        docker images -q mocha_frontend:latest
-        docker images -q mocha_api:latest
-        docker images -q mocha_db:latest
-        
-       
-
-    # - name: "Export the built images."
-    #   run: |
-    #    docker save -o frontend_service.tar frontend_service
-    #    docker save -o backend_service.tar backend_service
-    #    docker save -o db_service.tar db_service
-    # 
+        docker save -o frontend_service.tar mocha_frontend
+        docker save -o backend_service.tar mocha_api
+        docker save -o db_service.tar postgres
+     
     # - name: "Export the built images."
     #   run: |
     #     mkdir services
