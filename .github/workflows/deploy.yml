@@ -26,7 +26,7 @@ jobs:
        run: docker save -o frontend_service.tar mocha_frontend
        
      - name: "Export the backend image."
-       run: docker save -o frontend_service.tar mocha_api
+       run: docker save -o backend_service.tar mocha_api
 
      - name: "Export the DB image."
        run: docker image ls
