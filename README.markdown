@@ -54,10 +54,10 @@ To run this project locally on your own device, please make sure you have Docker
 - 1.) Clone this repository by running the following command from a terminal session: `git clone https://github.com/alyxshang/mocha`.
 - 2.) Change directory into Mocha's root directory.
 - 3.) Set the environment variable `POSTGRES_PASSWORD` to a not-empty string.
-- 3.) Run the command `docker-compose build`.
-- 4.) Run the command `docker-compose up`.
-- 5.) Mocha's frontend should be now running on [`http://0.0.0.0:4000`](http://0.0.0.0:4000).
-- 6.) Mocha's backend should be now running on [`http://0.0.0.0:3000`](http://0.0.0.0:3000).
+- 4.) Run the command `docker-compose build`.
+- 5.) Run the command `docker-compose up`.
+- 6.) Mocha's frontend should be now running on [`http://0.0.0.0:4000`](http://0.0.0.0:4000).
+- 7.) Mocha's backend should be now running on [`http://0.0.0.0:3000`](http://0.0.0.0:3000).
 
 ## NOTE :scroll:
 
